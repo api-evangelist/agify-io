@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: agify-io:agify-io
     name: Agify.io
-    tags:
-      - API
+    tags: []
     humanURL: ' https://agify.io/documentation'
     properties:
       - url: ' https://agify.io/documentation'
@@ -15,10 +14,10 @@ apis:
       name.
 name: Agify.io
 tags:
-  - Facial Recogntion
-  - Facial
   - Age
   - Age Detection
+  - Facial
+  - Facial Recogntion
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
