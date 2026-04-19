@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: Agify.io API
+  description: Predict the age of a person based on their first name. Returns estimated age, prediction confidence (count), and supports country localization and batch requests of up to 10 names. Generated from documentation.
+  version: v1
+  x-generated-from: documentation
+servers:
+  - url: https://api.agify.io
+    description: Agify.io Production API
+
+paths:
+  /:
+    get:
+      operationId: predictAge
+      summary: Agify.io Predict Age from Name
+      description: Estimate the age of a person based on their first name. Returns the predicted age, the number of data points used for the prediction, and optionally a country-localized estimate when a country_id is provided.
+      tags:
+        - Age Prediction
+      parameters:
+        - name: name
+          in: query
+          description: First name to predict age for. For batch requests use name[] array syntax.
+          schema:
+            type: string
+          example: John
+        - name: country_id
+          in: query
+          required: false
+          description: ISO 3166-1 alpha-2 country code for country-localized age prediction.
+          schema:
+            type: string
+          example: US
+        - name: apikey
+          in: query
+          required: false
+          description: API key for authenticated requests beyond the free tier (100 req/day).
+          schema:
+            type: string
+          example: abc123def456
+      responses:
+        '200':
+          description: Successful age prediction
+          headers:
+            X-Rate-Limit-Limit:
+              description: Maximum number of requests allowed in the current period.
+              schema:
+                type: integer
+            X-Rate-Limit-Remaining:
+              description: Remaining requests in the current period.
+              schema:
+                type: integer
+            X-Rate-Limit-Reset:
+              description: Unix timestamp when the rate limit resets.
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgePrediction'
+              examples:
+                PredictAge200Example:
+                  summary: Default predictAge 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 12345
+                    name: John
+                    age: 42
+        '401':
+          description: Unauthorized — invalid API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '402':
+          description: Payment Required — monthly quota exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity — invalid input parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests — daily rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+components:
+  schemas:
+    AgePrediction:
+      type: object
+      description: Age prediction result for a single name.
+      properties:
+        count:
+          type: integer
+          description: Number of data points used to make the prediction. Higher count means greater confidence.
+          example: 12345
+        name:
+          type: string
+          description: The name that was evaluated.
+          example: John
+        age:
+          type: integer
+          description: Predicted age for the given name. Null if there is insufficient data.
+          example: 42
+        country_id:
+          type: string
+          description: The country code used for localization, if provided.
+          example: US
+
+    ErrorResponse:
+      type: object
+      description: Error response returned when a request fails.
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
+          example: "Invalid API key"
+
+tags:
+  - name: Age Prediction
+    description: Predict a person's age from their first name

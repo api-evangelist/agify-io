@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agify-io/refs/heads/main/json-structure/agify-io-age-prediction-structure.json",
+  "name": "AgePrediction",
+  "description": "Age prediction result for a first name from the Agify.io API.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "int32",
+      "description": "Number of data points used to make the prediction. Higher count indicates greater confidence.",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "description": "The first name that was evaluated.",
+      "example": "John"
+    },
+    "age": {
+      "type": "int32",
+      "description": "Predicted age for the given name. Null if there is insufficient data for a prediction.",
+      "example": 42
+    },
+    "country_id": {
+      "type": "string",
+      "description": "The ISO 3166-1 alpha-2 country code used for localization, if provided in the request.",
+      "example": "US"
+    }
+  },
+  "required": [
+    "count",
+    "name"
+  ]
+}

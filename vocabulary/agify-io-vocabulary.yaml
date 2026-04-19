@@ -1,0 +1,91 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Agify.io
+  description: Vocabulary for the Agify.io API, which predicts a person's age from their first name.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+
+operational:
+  apis:
+    - name: Agify.io Predict Age API
+      namespace: agify-predict-age
+      version: v1
+      baseUrl: https://api.agify.io
+      status: active
+
+  resources:
+    - name: age-predictions
+      description: Age predictions derived from first name analysis
+      actions:
+        - predict
+
+  actions:
+    - name: predict
+      description: Predict age from a first name
+      httpMethod: GET
+      pattern: query
+
+  schemas:
+    core:
+      - name: AgePrediction
+        description: Result of an age prediction for a first name
+        properties:
+          - count
+          - name
+          - age
+          - country_id
+
+  parameters:
+    query:
+      - name: name
+        description: First name to predict age for
+      - name: country_id
+        description: ISO 3166-1 country code for localized prediction
+      - name: apikey
+        description: API key for authenticated access
+
+  enums:
+    plan_names:
+      - Free
+      - Basic
+      - Standard
+      - Plus
+      - Premium
+
+  authentication:
+    schemes:
+      - name: API Key
+        type: apiKey
+        description: apikey query parameter, optional for free tier
+
+capability:
+  workflows:
+    - name: Age Prediction from Name
+      description: Predict the age of a person based on their first name, optionally localized by country
+      apis:
+        - agify-predict-age
+      personas:
+        - Developer
+      domains:
+        - Demographics
+
+  personas:
+    - id: developer
+      name: Developer
+      description: Developers integrating age prediction into applications for demographic analysis or personalization
+      workflows:
+        - Age Prediction from Name
+
+  domains:
+    - name: Demographics
+      description: Statistical analysis and prediction of demographic attributes from personal data
+
+crossReference:
+  - resource: age-predictions
+    operations:
+      - predict
+    workflows:
+      - Age Prediction from Name
+    personas:
+      - Developer

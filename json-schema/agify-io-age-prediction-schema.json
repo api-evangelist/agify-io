@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agify-io/refs/heads/main/json-schema/agify-io-age-prediction-schema.json",
+  "title": "AgePrediction",
+  "description": "Age prediction result for a first name from the Agify.io API.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "Number of data points used to make the prediction. Higher count indicates greater confidence.",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "description": "The first name that was evaluated.",
+      "example": "John"
+    },
+    "age": {
+      "type": "integer",
+      "description": "Predicted age for the given name. Null if there is insufficient data for a prediction.",
+      "example": 42
+    },
+    "country_id": {
+      "type": "string",
+      "description": "The ISO 3166-1 alpha-2 country code used for localization, if provided in the request.",
+      "example": "US"
+    }
+  },
+  "required": ["count", "name"]
+}
