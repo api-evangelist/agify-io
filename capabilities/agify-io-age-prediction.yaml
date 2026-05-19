@@ -1,0 +1,88 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Agify.io API — Age Prediction
+  description: 'Agify.io API — Age Prediction. 1 operations. Lead operation: Agify.io Predict Age from Name. Self-contained
+    Naftiko capability covering one Agify Io business surface.'
+  tags:
+  - Agify Io
+  - Age Prediction
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AGIFY_IO_API_KEY: AGIFY_IO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: agify-io-age-prediction
+    baseUri: https://api.agify.io
+    description: Agify.io API — Age Prediction business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: predictage
+        method: GET
+        description: Agify.io Predict Age from Name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          description: First name to predict age for. For batch requests use name[] array syntax.
+        - name: country_id
+          in: query
+          type: string
+          description: ISO 3166-1 alpha-2 country code for country-localized age prediction.
+        - name: apikey
+          in: query
+          type: string
+          description: API key for authenticated requests beyond the free tier (100 req/day).
+  exposes:
+  - type: rest
+    namespace: agify-io-age-prediction-rest
+    port: 8080
+    description: REST adapter for Agify.io API — Age Prediction. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: GET
+        name: predictage
+        description: Agify.io Predict Age from Name
+        call: agify-io-age-prediction.predictage
+        with:
+          name: rest.name
+          country_id: rest.country_id
+          apikey: rest.apikey
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: agify-io-age-prediction-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Agify.io API — Age Prediction. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: agify-io-predict-age-name
+      description: Agify.io Predict Age from Name
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agify-io-age-prediction.predictage
+      with:
+        name: tools.name
+        country_id: tools.country_id
+        apikey: tools.apikey
+      outputParameters:
+      - type: object
+        mapping: $.

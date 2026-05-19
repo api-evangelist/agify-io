@@ -1,8 +1,9 @@
 aid: agify-io
 name: Agify.io
-description: Agify.io is a simple REST API that predicts the age of a person based on their first name. Using a large dataset of name-age associations, it returns an estimated age along with a count 
-  of how many data points were used and the name's country-localized variant when a country code is provided. Supports batch requests for up to 10 names per call. Used for demographics research, 
-  content personalization, and marketing segmentation.
+description: Agify.io is a simple REST API that predicts the age of a person based on their first name. Using a large dataset
+  of name-age associations, it returns an estimated age along with a count of how many data points were used and the name's
+  country-localized variant when a country code is provided. Supports batch requests for up to 10 names per call. Used for
+  demographics research, content personalization, and marketing segmentation.
 url: https://raw.githubusercontent.com/api-evangelist/agify-io/refs/heads/main/apis.yml
 humanURL: https://agify.io/
 type: Index
@@ -14,13 +15,13 @@ tags:
 - Demographics
 - REST API
 created: '2025-01-07'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - aid: agify-io:predict-age-api
   name: Agify.io Predict Age API
-  description: Predict the age of a person based on their first name. Returns an estimated age, data count used for the prediction, and optionally a country-localized estimate. Supports single name 
-    and batch requests of up to 10 names.
+  description: Predict the age of a person based on their first name. Returns an estimated age, data count used for the prediction,
+    and optionally a country-localized estimate. Supports single name and batch requests of up to 10 names.
   humanURL: https://agify.io/documentation
   baseURL: https://api.agify.io
   tags:
@@ -32,6 +33,8 @@ apis:
     url: https://agify.io/documentation
   - type: Pricing
     url: https://agify.io/#pricing
+  - type: NaftikoCapability
+    url: capabilities/agify-io-age-prediction.yaml
 common:
 - type: Portal
   url: https://agify.io/
@@ -48,7 +51,8 @@ common:
   - name: Batch Processing
     description: Supports up to 10 names per API request using array parameter syntax for efficient bulk predictions.
   - name: Rate Limit Headers
-    description: Returns X-Rate-Limit-Limit, X-Rate-Limit-Remaining, and X-Rate-Limit-Reset headers to track API usage and quota.
+    description: Returns X-Rate-Limit-Limit, X-Rate-Limit-Remaining, and X-Rate-Limit-Reset headers to track API usage and
+      quota.
   - name: Free Tier
     description: Free access for up to 100 requests per day without an API key, making it easy to evaluate the service.
 - type: UseCases
@@ -58,7 +62,8 @@ common:
   - name: Content Personalization
     description: Tailor content or product recommendations based on estimated age derived from a user's provided first name.
   - name: Marketing Segmentation
-    description: Segment leads and customers by estimated age group for targeted marketing campaigns without requiring date-of-birth collection.
+    description: Segment leads and customers by estimated age group for targeted marketing campaigns without requiring date-of-birth
+      collection.
   - name: Form Pre-Fill Assistance
     description: Provide age-range hints during user registration to improve form completion rates and data accuracy.
 - type: Integrations
@@ -66,7 +71,8 @@ common:
   - name: Genderize.io
     description: Sibling API that predicts gender based on first name — commonly used alongside Agify for demographic profiling.
   - name: Nationalize.io
-    description: Sibling API that predicts nationality from first name, completing a demographic analysis trifecta with Agify and Genderize.
+    description: Sibling API that predicts nationality from first name, completing a demographic analysis trifecta with Agify
+      and Genderize.
 - type: RateLimits
   data:
   - name: Free
