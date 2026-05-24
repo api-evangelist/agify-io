@@ -85,6 +85,8 @@ common:
     description: 2,500,000 requests per month for $180
   - name: Premium
     description: 25,000,000 requests per month for $540
+- type: LLMsTxt
+  url: https://agify.io/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
