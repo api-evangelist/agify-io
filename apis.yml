@@ -33,7 +33,7 @@ apis:
     url: https://agify.io/documentation
   - type: Pricing
     url: https://agify.io/#pricing
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/agify-io-age-prediction.yaml
 common:
 - type: Portal
@@ -85,7 +85,7 @@ common:
     description: 2,500,000 requests per month for $180
   - name: Premium
     description: 25,000,000 requests per month for $540
-- type: LLMsTxt
+- type: LlmsText
   url: https://agify.io/llms.txt
 maintainers:
 - FN: Kin Lane
