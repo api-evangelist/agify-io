@@ -36,6 +36,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/agify-io-age-prediction.yaml
 common:
+- type: DomainSecurity
+  url: security/agify-io-domain-security.yml
 - type: Portal
   url: https://agify.io/
 - type: Documentation
