@@ -1,13 +1,15 @@
 openapi: 3.0.3
 info:
-  title: Agify.io API
+  title: Agify.io Age Prediction API
   description: Predict the age of a person based on their first name. Returns estimated age, prediction confidence (count), and supports country localization and batch requests of up to 10 names. Generated from documentation.
   version: v1
   x-generated-from: documentation
 servers:
-  - url: https://api.agify.io
-    description: Agify.io Production API
-
+- url: https://api.agify.io
+  description: Agify.io Production API
+tags:
+- name: Age Prediction
+  description: Predict a person's age from their first name
 paths:
   /:
     get:
@@ -15,28 +17,28 @@ paths:
       summary: Agify.io Predict Age from Name
       description: Estimate the age of a person based on their first name. Returns the predicted age, the number of data points used for the prediction, and optionally a country-localized estimate when a country_id is provided.
       tags:
-        - Age Prediction
+      - Age Prediction
       parameters:
-        - name: name
-          in: query
-          description: First name to predict age for. For batch requests use name[] array syntax.
-          schema:
-            type: string
-          example: John
-        - name: country_id
-          in: query
-          required: false
-          description: ISO 3166-1 alpha-2 country code for country-localized age prediction.
-          schema:
-            type: string
-          example: US
-        - name: apikey
-          in: query
-          required: false
-          description: API key for authenticated requests beyond the free tier (100 req/day).
-          schema:
-            type: string
-          example: abc123def456
+      - name: name
+        in: query
+        description: First name to predict age for. For batch requests use name[] array syntax.
+        schema:
+          type: string
+        example: John
+      - name: country_id
+        in: query
+        required: false
+        description: ISO 3166-1 alpha-2 country code for country-localized age prediction.
+        schema:
+          type: string
+        example: US
+      - name: apikey
+        in: query
+        required: false
+        description: API key for authenticated requests beyond the free tier (100 req/day).
+        schema:
+          type: string
+        example: abc123def456
       responses:
         '200':
           description: Successful age prediction
@@ -92,7 +94,6 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-
 components:
   schemas:
     AgePrediction:
@@ -115,7 +116,6 @@ components:
           type: string
           description: The country code used for localization, if provided.
           example: US
-
     ErrorResponse:
       type: object
       description: Error response returned when a request fails.
@@ -123,8 +123,4 @@ components:
         error:
           type: string
           description: Human-readable error message.
-          example: "Invalid API key"
-
-tags:
-  - name: Age Prediction
-    description: Predict a person's age from their first name
+          example: Invalid API key
