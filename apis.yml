@@ -7,7 +7,19 @@ description: Agify.io is a simple REST API that predicts the age of a person bas
 url: https://raw.githubusercontent.com/api-evangelist/agify-io/refs/heads/main/apis.yml
 humanURL: https://agify.io/
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/agify-io.png
 access: 3rd-Party
 tags:
 - Age Prediction
@@ -20,8 +32,10 @@ specificationVersion: '0.19'
 apis:
 - aid: agify-io:predict-age-api
   name: Agify.io Predict Age API
-  description: Predict the age of a person based on their first name. Returns an estimated age, data count used for the prediction,
-    and optionally a country-localized estimate. Supports single name and batch requests of up to 10 names.
+  description: >-
+    Predict the age of a person based on their first name. Returns an estimated age, data count used for
+    the prediction, and optionally a country-localized estimate. Supports single name and batch requests
+    of up to 10 names.
   humanURL: https://agify.io/documentation
   baseURL: https://api.agify.io
   tags:
@@ -35,6 +49,16 @@ apis:
     url: https://agify.io/#pricing
   - type: X-NaftikoCapability
     url: capabilities/agify-io-age-prediction.yaml
+- aid: agify-io:agify-io-age-prediction-api
+  name: Agify.io Age Prediction API
+  description: Predict a person's age from their first name
+  humanURL: https://agify.io/documentation
+  baseURL: https://api.agify.io
+  tags:
+  - Age Prediction
+  properties:
+  - type: OpenAPI
+    url: openapi/agify-io-age-prediction-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/agify-io-agentic-access.yml
