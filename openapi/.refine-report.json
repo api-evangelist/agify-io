@@ -1,0 +1,14 @@
+{
+  "provider": "agify-io",
+  "sources": [
+    "agify-io-age-prediction-api-openapi.yml"
+  ],
+  "outputs": [
+    "agify-io-age-prediction-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
