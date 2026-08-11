@@ -47,8 +47,6 @@ apis:
     url: https://agify.io/documentation
   - type: Pricing
     url: https://agify.io/#pricing
-  - type: X-NaftikoCapability
-    url: capabilities/agify-io-age-prediction.yaml
 - aid: agify-io:agify-io-age-prediction-api
   name: Agify.io Age Prediction API
   description: Predict a person's age from their first name
