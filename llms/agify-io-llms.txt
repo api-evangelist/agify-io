@@ -1,0 +1,59 @@
+# Agify.io
+
+> Agify.io is a REST API that predicts the age of a person from their name, returning an estimated age and the number of data rows examined. It is operated by Demografix ApS (Denmark) and is part of a suite of three name-based demographic APIs.
+
+Agify.io bases its predictions on a dataset of over 908 million data rows covering 240+ countries and territories. The API is used for demographic analysis, audience segmentation, customer profiling, and academic research.
+
+Important: Agify.io predicts the statistical average age of people with a given name — it does not predict the age of a specific individual. Results reflect the age distribution of people with that name in the dataset, not a birth year estimate for any particular person.
+
+## Documentation
+
+- [Documentation Hub](https://agify.io/documentation): Overview of all integration surfaces — API, MCP server, spreadsheet tool, and no-code workflows
+
+## API
+
+- [API Reference](https://agify.io/documentation/api/reference): Full API reference with request/response formats, parameters, error codes, and examples
+- [Name handling](https://agify.io/documentation#name-handling): Send a first name or a full name; age is predicted from the given name, and the surrounding name identifies which part that is, so there is no need to split full names. Titles, initials, and accents are handled.
+- [Example request](https://api.agify.io?name=peter): `GET https://api.agify.io?name=peter` returns `{"count":175919,"name":"peter","age":61}`
+- [Country-scoped request](https://api.agify.io?name=peter&country_id=dk): `GET https://api.agify.io?name=peter&country_id=dk` returns `{"count":3086,"name":"peter","age":55,"country_id":"DK"}` — age predictions vary by country because naming trends differ. Use `country_id` (ISO 3166-1 alpha-2) to scope predictions.
+- [Batch requests](https://agify.io/documentation): Up to 10 names per request using `name[]=` parameter. Each name counts as one lookup against your quota.
+
+## Pricing
+
+- [Pricing](https://agify.io/pricing): All tiers include access to all three APIs (genderize.io, agify.io, nationalize.io).
+- Free: 2,500 names/month
+- Basic: 25,000 names/month — $20/month
+- Standard: 250,000 names/month — $60/month
+- Plus: 2,500,000 names/month — $180/month
+- Premium: 25,000,000 names/month — $540/month
+- Yearly billing available (pay for 10 months, get 12)
+
+## MCP Server
+
+- [MCP Documentation](https://agify.io/documentation/mcp): Connect any MCP-compatible AI client to Agify.io
+- Endpoint: `https://mcp.agify.io`
+- Tool: `predict_age(name, country_id?)` — name can be a single string or a list of up to 100 names; country_id is an optional ISO 3166-1 alpha-2 code
+- Authentication: `Authorization: Bearer YOUR_API_KEY` header — same API key as the REST API
+- Quota: MCP requests count against your monthly plan quota
+- [Claude Code setup](https://agify.io/documentation/mcp/claude-code): One-line CLI install for Claude Code
+
+## CLI
+
+- [CLI — basic usage](https://agify.io/documentation/cli): Command-line tool `demografix` — predict age, gender, and nationality from names in your terminal. Install, authentication, output formats, exit codes.
+- [CLI — spreadsheets](https://agify.io/documentation/cli/spreadsheets): Enrich a CSV/TSV/JSON/JSONL/XLSX file in place with prediction columns using `demografix enrich`. Dry-run costing and resume support.
+
+## Tools
+
+- [Spreadsheet tool](https://agify.io/spreadsheets): Upload a spreadsheet and get gender, age, and nationality columns added — no code required
+- [No-Code Integrations](https://agify.io/documentation/no-code): Official integrations with n8n and Pipedream
+- [Community Libraries](https://agify.io/libraries): Open-source libraries for Python, R, PHP, Ruby, Go, JavaScript, Java, C#, and more
+
+## Resources
+
+- [FAQ](https://agify.io/faq): Common questions about data accuracy, billing, rate limits, and methodology
+- [Case Studies](https://agify.io/case-studies): Use cases in demographic analysis and research
+
+## Related APIs
+
+- [Genderize.io](https://genderize.io): Predict gender from a name — same subscription, same API key
+- [Nationalize.io](https://nationalize.io): Predict nationality from a name — same subscription, same API key

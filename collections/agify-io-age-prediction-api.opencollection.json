@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Agify.io Age Prediction API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Age Prediction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agify.io Predict Age from Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.agify.io/",
+            "params": [
+              {
+                "name": "name",
+                "value": "John",
+                "type": "query",
+                "description": "First name to predict age for. For batch requests use name[] array syntax."
+              },
+              {
+                "name": "country_id",
+                "value": "US",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-2 country code for country-localized age prediction."
+              },
+              {
+                "name": "apikey",
+                "value": "abc123def456",
+                "type": "query",
+                "description": "API key for authenticated requests beyond the free tier (100 req/day)."
+              }
+            ]
+          },
+          "docs": "Estimate the age of a person based on their first name. Returns the predicted age, the number of data points used for the prediction, and optionally a country-localized estimate when a country_id is provided."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
