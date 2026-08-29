@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Agify.io Age Prediction API
   description: Predict the age of a person based on their first name. Returns estimated age, prediction confidence (count), and supports country localization and batch requests of up to 10 names. Generated from documentation.
@@ -96,6 +96,14 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      description: Error response returned when a request fails.
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
+          example: Invalid API key
     AgePrediction:
       type: object
       description: Age prediction result for a single name.
@@ -116,11 +124,3 @@ components:
           type: string
           description: The country code used for localization, if provided.
           example: US
-    ErrorResponse:
-      type: object
-      description: Error response returned when a request fails.
-      properties:
-        error:
-          type: string
-          description: Human-readable error message.
-          example: Invalid API key
