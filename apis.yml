@@ -70,6 +70,8 @@ apis:
   - type: OpenAPI
     url: openapi/agify-io-age-prediction-api-openapi.yml
 common:
+- type: Website
+  url: https://www.agify.io/
 - type: AgenticAccess
   url: agentic-access/agify-io-agentic-access.yml
 - type: DomainSecurity
