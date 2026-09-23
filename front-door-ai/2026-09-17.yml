@@ -1,0 +1,35 @@
+# Front Door AI Index — agify-io — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: agify-io
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.agify.io
+  final_host: agify.io
+  ownership: inherited
+  owner: agify-io
+  shares_host_with: null
+  inherited_from: agify.io
+  verdict: scored
+  score: null
+  host_score: 23
+  density: null
+  words: 2012
+  tiers:
+    agentic: 14
+    core: 3
+    model: 6
+  ambiguous: 4
+  top_terms:
+    MCP: 9
+    Claude: 4
+    agent: 3
+    AI: 2
+    ChatGPT: 2
+    inference: 2
+    AI agent: 1
+    AI assistant: 1
+    LLMs: 1
+    automation: 1
+    model context protocol: 1
