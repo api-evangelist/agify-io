@@ -7,14 +7,17 @@ front_door_ai:
   probed_at: '2026-09-17'
   host: www.agify.io
   final_host: agify.io
-  ownership: inherited
+  ownership: own
   owner: agify-io
   shares_host_with: null
-  inherited_from: agify.io
+  inherited_from: null
+  alias_of: agify.io
   verdict: scored
-  score: null
+  score: 23
+  band: 6
+  band_label: dominant
   host_score: 23
-  density: null
+  density: 11.43
   words: 2012
   tiers:
     agentic: 14
