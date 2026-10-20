@@ -1,0 +1,41 @@
+{
+  "endpoint": "https://mcp.agify.io/",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "agify",
+    "version": "1.0.0"
+  },
+  "result": {
+    "tools": [
+      {
+        "description": "Predict the age of a person from their name. Returns the most\nlikely current age (years) based on global birth-year statistics for\nthat name, and the count of people with that name in the underlying\ndataset. Optionally scope by country (ISO 3166-1 alpha-2). Accepts a\nsingle name or a list of up to 100 names per call.\n",
+        "inputSchema": {
+          "properties": {
+            "country_id": {
+              "description": "Optional ISO 3166-1 alpha-2 country code (e.g. 'DK', 'US') to scope predictions"
+            },
+            "name": {
+              "description": "A single name (full name or first) or a list of up to 100 names",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "name": "predict_age",
+        "title": "predict_age"
+      }
+    ]
+  }
+}
