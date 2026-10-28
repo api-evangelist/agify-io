@@ -1,4 +1,4 @@
-# Agify.io (agify-io)
+# Agify.io
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,97 +66,158 @@
 
 Agify.io is a simple REST API that predicts the age of a person based on their first name. Using a large dataset of name-age associations, it returns an estimated age along with a count of how many data points were used and the name's country-localized variant when a country code is provided. Supports batch requests for up to 10 names per call. Used for demographics research, content personalization, and marketing segmentation.
 
-**URL:** [https://agify.io/](https://agify.io/)
+**Areas:** Age Prediction · Name Analysis · Demographics · REST API
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Agify.io on APIs.io
 
-## Tags:
+Everything profiled for Agify.io is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/agify-io/](https://apis.io/providers/agify-io/)** — or go straight to one of the APIs or properties below.
 
- - Age Prediction, Name Analysis, Demographics, REST API
+### APIs (2)
 
-## Timestamps
+- [Agify.io Predict Age API](https://apis.io/apis/agify-io/predict-age-api/) — Predict the age of a person based on their first name. Returns an estimated age, data count used for the prediction, and optionally a country-localized…
+- [Agify.io Age Prediction API](https://apis.io/apis/agify-io/agify-io-age-prediction-api/) — Predict a person's age from their first name
 
-- **Created:** 2025-01-07
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Agify.io Predict Age API
-Predict the age of a person based on their first name. Returns an estimated age, data count used for the prediction, and optionally a country-localized estimate.
+#### MCP servers (1)
 
-**Human URL:** [https://agify.io/documentation](https://agify.io/documentation)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags:
+- [agify-io](https://apis.io/servers/agify-io/agify-io/)
 
- - Age Prediction, Name, Demographics
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
+- [Agify Io Agentic Access](https://apis.io/agentic-access/agify-io/agify-io-agentic-access/)
+
+#### JSON Schema (1)
+
+The data models the API reads and writes.
+
+- [AgePrediction](https://apis.io/schemas/agify-io/agify-io-age-prediction/)
+
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Agify Io Age Prediction Structure](https://apis.io/json-structure/agify-io/agify-io-age-prediction-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Agify Io Context](https://apis.io/jsonld/agify-io/agify-io-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Agify Io Vocabulary](https://apis.io/vocabularies/agify-io/agify-io-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Agify Io Age Prediction Example](https://apis.io/examples/agify-io/agify-io-age-prediction-example/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Agify.io Age Prediction API](https://apis.io/collections/agify-io/open-agify-io-age-prediction-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Agify.io — jsonschema rules](https://apis.io/rules/agify-io/agify-io-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Agify Io Domain Security](https://apis.io/security/agify-io/agify-io-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Agify Io Plans Pricing](https://apis.io/plans/agify-io/agify-io-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Agify Io Rate Limits](https://apis.io/rate-limits/agify-io/agify-io-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Agify Io Finops](https://apis.io/finops/agify-io/agify-io-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.agify.io/)
 - [Documentation](https://agify.io/documentation)
 - [Pricing](https://agify.io/#pricing)
-- [OpenAPI](openapi/agify-io-openapi.yaml)
 
-## Common Properties
+## API Evangelist rating
 
-- [Portal](https://agify.io/)
-- [Documentation](https://agify.io/documentation)
-- [Pricing](https://agify.io/#pricing)
-- [JSONSchema - Age Prediction Schema](https://raw.githubusercontent.com/api-evangelist/agify-io/refs/heads/main/json-schema/agify-io-age-prediction-schema.json)
-- [JSON-LD](https://raw.githubusercontent.com/api-evangelist/agify-io/refs/heads/main/json-ld/agify-io-context.jsonld)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/agify-io/refs/heads/main/vocabulary/agify-io-vocabulary.yaml)
+**Kin Score 18.8** — emerging · rubric 0.25.0 · scored 2026-10-23
 
-## Features
+| Facet | Score |
+|---|---|
+| Discoverability | 66.7 |
+| Contract quality | 16.5 |
+| Contract governance | 9.8 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 13.2 |
 
-| Name | Description |
-|------|-------------|
-| Name-Based Age Prediction | Estimates a person's age from their first name using a large statistical dataset of name-age associations. |
-| Country Localization | Accepts an optional ISO 3166-1 country code to return country-specific age predictions for the given name. |
-| Batch Processing | Supports up to 10 names per API request using array parameter syntax for efficient bulk predictions. |
-| Rate Limit Headers | Returns X-Rate-Limit-Limit, X-Rate-Limit-Remaining, and X-Rate-Limit-Reset headers to track API usage and quota. |
-| Free Tier | Free access for up to 100 requests per day without an API key, making it easy to evaluate the service. |
+**Agent readiness 42.5** — agent-native
 
-## Use Cases
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | verified |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
 
-| Name | Description |
-|------|-------------|
-| Demographics Research | Analyze name datasets to estimate age distributions across a user base for research and analytics. |
-| Content Personalization | Tailor content or product recommendations based on estimated age derived from a user's provided first name. |
-| Marketing Segmentation | Segment leads and customers by estimated age group for targeted marketing campaigns without requiring date-of-birth collection. |
-| Form Pre-Fill Assistance | Provide age-range hints during user registration to improve form completion rates and data accuracy. |
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
 
-## Integrations
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/agify-io/](https://apis.io/providers/agify-io/).
 
-| Name | Description |
-|------|-------------|
-| Genderize.io | Sibling API that predicts gender based on first name — commonly used alongside Agify for demographic profiling. |
-| Nationalize.io | Sibling API that predicts nationality from first name, completing a demographic analysis trifecta with Agify and Genderize. |
+## How this profile is made
 
-## Artifacts
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-Machine-readable API specifications organized by format.
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Agify.io: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### OpenAPI
+## Open an issue
 
-- [Agify.io API](openapi/agify-io-openapi.yaml)
-
-### JSON Schema
-
-- [Age Prediction Schema](json-schema/agify-io-age-prediction-schema.json)
-
-### JSON Structure
-
-- [Age Prediction Structure](json-structure/agify-io-age-prediction-structure.json)
-
-### JSON-LD
-
-- [Agify.io Context](json-ld/agify-io-context.jsonld)
-
-## Vocabulary
-
-- [Agify.io Vocabulary](vocabulary/agify-io-vocabulary.yaml) — Taxonomy mapping 1 resource, 1 action, 1 workflow, and 1 persona for age prediction from names
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/agify-io/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
